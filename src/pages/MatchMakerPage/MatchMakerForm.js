@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
-
-
 const MatchMakerForm = ({ onSubmit }) => {
   const [age, setAge] = useState("");
   const [breed, setBreed] = useState("");
@@ -46,8 +44,8 @@ const MatchMakerForm = ({ onSubmit }) => {
           Gender:
           <select value={gender} onChange={(e) => setGender(e.target.value)}>
             <option value="">Select Gender</option>
-            <option value="1">Female</option>
-            <option value="2">Male</option>
+            <option value="Female">Female</option>
+            <option value="Male">Male</option>
           </select>
         </label>
 
@@ -55,9 +53,9 @@ const MatchMakerForm = ({ onSubmit }) => {
           Size:
           <select value={size} onChange={(e) => setSize(e.target.value)}>
             <option value="">Select Size</option>
-            <option value="1">Large</option>
-            <option value="2">Medium</option>
-            <option value="3">Small</option>
+            <option value="Large">Large</option>
+            <option value="Medium">Medium</option>
+            <option value="Small">Small</option>
           </select>
         </label>
 

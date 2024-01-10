@@ -7,13 +7,16 @@ const MatchMakerPage = () => {
 
   const handleFormSubmit = async (formData) => {
     try {
+      console.log("Sending data to backend:", formData);
       const response = await axios.post(
-        "https://localhost:5001/api/matchDogs",
+        "https://localhost:5001/api/dogs/MatchMaker",
         formData
       );
-      setMatches(response.data); // Assuming the response contains the matched dogs
+      console.log("Response received from backend:", response.data);
+      setMatches(response.data);
     } catch (error) {
       console.error("Error fetching matches", error);
+      console.log("Error details:", error.response?.data || error.message);
     }
   };
 
@@ -21,11 +24,22 @@ const MatchMakerPage = () => {
     <div>
       <h1>Match Maker Page</h1>
       <MatchMakerForm onSubmit={handleFormSubmit} />
-      {/* Optionally render the matches here */}
       {matches.length > 0 && (
         <div>
           <h2>Matched Dogs</h2>
-          {/* Render the list of matches */}
+          <ul>
+            {matches.map((dog, index) => (
+              <li key={index}>
+                <div>Name: {dog.name}</div>
+                <div>Age: {dog.age} years</div>
+                <div>Gender: {dog.gender}</div>
+                <div>Size: {dog.size}</div>
+                <div>Weight: {dog.weight}</div>
+                <div>EnergyLevel: {dog.energyLevel}</div>
+                <div>Color: {dog.color}</div>
+              </li>
+            ))}
+          </ul>
         </div>
       )}
     </div>
