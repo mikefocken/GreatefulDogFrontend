@@ -18,12 +18,17 @@ const Navbar = () => {
         <li>
           <button> Meet Our pack</button>
         </li>
-        <Link to ="/MatchMaker">
+        <Link to="/MatchMaker">
           <button>Match Maker</button>
         </Link>
-        <li>
-          <button> Search</button>
-        </li>
+        <Link to="/SearchPage">
+          <button>Search</button>
+        </Link>
+       
+        
+        <Link to="/AddDog">
+          <button>AddDog</button>
+        </Link>
 
         <li>
           {user ? (

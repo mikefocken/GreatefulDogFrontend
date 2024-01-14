@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import MatchMakerForm from "./MatchMakerForm";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const MatchMakerPage = () => {
   const [matches, setMatches] = useState([]);
@@ -32,11 +33,6 @@ const MatchMakerPage = () => {
               <li key={index}>
                 <div>Name: {dog.name}</div>
                 <div>Age: {dog.age} years</div>
-                <div>Gender: {dog.gender}</div>
-                <div>Size: {dog.size}</div>
-                <div>Weight: {dog.weight}</div>
-                <div>EnergyLevel: {dog.energyLevel}</div>
-                <div>Color: {dog.color}</div>
               </li>
             ))}
           </ul>
