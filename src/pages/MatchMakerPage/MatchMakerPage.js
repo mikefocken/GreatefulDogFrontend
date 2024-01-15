@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import MatchMakerForm from "./MatchMakerForm";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; // Import useNavigate here
 
 const MatchMakerPage = () => {
   const [matches, setMatches] = useState([]);
+  const navigate = useNavigate();
 
   const handleFormSubmit = async (formData) => {
     try {
@@ -14,7 +15,8 @@ const MatchMakerPage = () => {
         formData
       );
       console.log("Response received from backend:", response.data);
-      setMatches(response.data);
+      setMatches(response.data); // Save the matches in state
+      navigate("/match-page", { state: { matches: response.data } }); // Navigate to MatchPage with match data
     } catch (error) {
       console.error("Error fetching matches", error);
       console.log("Error details:", error.response?.data || error.message);
@@ -25,19 +27,7 @@ const MatchMakerPage = () => {
     <div>
       <h1>Match Maker Page</h1>
       <MatchMakerForm onSubmit={handleFormSubmit} />
-      {matches.length > 0 && (
-        <div>
-          <h2>Matched Dogs</h2>
-          <ul>
-            {matches.map((dog, index) => (
-              <li key={index}>
-                <div>Name: {dog.name}</div>
-                <div>Age: {dog.age} years</div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      {/* Removed the list of matches since we navigate to MatchPage */}
     </div>
   );
 };

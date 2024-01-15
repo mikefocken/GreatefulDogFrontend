@@ -9,10 +9,11 @@ const DogDetailsPage = () => {
   useEffect(() => {
     const fetchDogDetails = async () => {
       try {
-        const response = await axios.get(
-          `https://localhost:5001/api/dogs/${dogId}`
-        );
-        setDogDetails(response.data);
+        console.log("Fetching details for dog ID:", dogId);
+        const detailsResponse = await axios.get(`https://localhost:5001/api/dogs/${dogId}`);
+        const imageResponse = await axios.get(`https://localhost:5001/api/image/ByDog/${dogId}`);
+
+        setDogDetails({ ...detailsResponse.data, images: imageResponse.data });
       } catch (error) {
         console.error("Error fetching dog details:", error);
         // Handle error appropriately
@@ -23,11 +24,12 @@ const DogDetailsPage = () => {
   }, [dogId]);
 
   if (!dogDetails) {
-    return <div>Loading...</div>; // or any other loading state representation
+    return <div>Loading...</div>;
   }
 
   return (
     <div>
+      
       <h2>{dogDetails.name}</h2>
       <p>Age: {dogDetails.age}</p>
       <p>Breed: {dogDetails.breed}</p>

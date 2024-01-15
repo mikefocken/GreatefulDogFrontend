@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import AddDogForm from "./AddDogForm";
+import ImageForm from "../../components/Image/ImageForm";
 
 const AddDogPage = () => {
   const handleSubmit = async (dogData) => {
@@ -20,6 +21,7 @@ const AddDogPage = () => {
   return (
     <div>
       <h1>Add New Dog</h1>
+      <ImageForm></ImageForm>
       <AddDogForm onSubmit={handleSubmit} />
     </div>
   );

@@ -10,6 +10,7 @@ import MatchMakerPage from "./pages/MatchMakerPage/MatchMakerPage";
 import SearchPage from "./pages/SearchPage/SearchPage.js";
 import AddDogPage from "./pages/AddDogPage/AddDogPage";
 import DogDetailsPage from "./pages/DogDetailsPage/DogDetailsPage.js";
+
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
@@ -17,6 +18,9 @@ import Image from "./components/Image/Image";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
+import MatchPage from "./pages/MatchMakerPage/MatchPage";
+import ResultsList from "./pages/SearchPage/ResultsList.js";
+import ScheduleAppointment from "./pages/AdopterPage/ScheduleAppointment.js";
 
 function App() {
   return (
@@ -33,11 +37,12 @@ function App() {
         />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/MatchMaker" element={<MatchMakerPage />} />
-        <Route path="/SearchPage" element={<SearchPage />} />
-        <Route path="/Image" element={<Image />} />
-        <Route path="/AddDog" element={<AddDogPage />} />
+        <Route path="/matchmaker" element={<MatchMakerPage />} />
+        <Route path="/searchpage" element={<SearchPage />} />
+        <Route path="/add-dog" element={<AddDogPage />} />
         <Route path="/dog/:dogId" element={<DogDetailsPage />} />
+        <Route path="/match-page" element={<MatchPage />} />
+        <Route path="/ScheduleAppointment" element={<ScheduleAppointment />} />
       </Routes>
       <Footer />
     </div>
