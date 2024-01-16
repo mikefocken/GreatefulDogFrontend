@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import MatchMakerForm from "./MatchMakerForm";
-import { useNavigate } from "react-router-dom"; // Import useNavigate here
+import { useNavigate } from "react-router-dom";
 
 const MatchMakerPage = () => {
   const [matches, setMatches] = useState([]);
+  const [dogImages, setDogImages] = useState(null);
   const navigate = useNavigate();
 
   const handleFormSubmit = async (formData) => {
@@ -15,7 +16,7 @@ const MatchMakerPage = () => {
         formData
       );
       console.log("Response received from backend:", response.data);
-      setMatches(response.data); // Save the matches in state
+      setMatches(response.data); // Save the matches state
       navigate("/match-page", { state: { matches: response.data } }); // Navigate to MatchPage with match data
     } catch (error) {
       console.error("Error fetching matches", error);
@@ -23,13 +24,24 @@ const MatchMakerPage = () => {
     }
   };
 
+  const fetchDogImages = async (dogId) => { // Added dogId parameter
+    try {
+      console.log("Fetching images for dog id:", dogId);
+      const imageResponse = await axios.get(`https://localhost:5001/api/image/ByDog/${dogId}`);
+      setDogImages(imageResponse.data);
+    } catch (error) {
+      console.error("Error fetching dog images", error);
+    }
+  };
+
   return (
     <div>
       <h1>Match Maker Page</h1>
       <MatchMakerForm onSubmit={handleFormSubmit} />
-      {/* Removed the list of matches since we navigate to MatchPage */}
+      {/* Other components or logic can be added here if needed */}
     </div>
   );
 };
 
 export default MatchMakerPage;
+

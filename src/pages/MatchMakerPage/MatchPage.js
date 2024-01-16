@@ -7,6 +7,7 @@ const MatchPage = () => {
 
   return (
     <div>
+      {console.log(matches)}
       <h1>Matched Dogs</h1>
       {matches.length > 0 ? (
         <ul>
@@ -15,10 +16,15 @@ const MatchPage = () => {
             return (
               <li key={dog.id || index}>
                 <Link to={`/dog/${dog.id}`}>{dog.name}</Link>
-               
-                {dog.images && dog.images.map((image, imgIndex) => (
-                  <img key={imgIndex} src={image.imageSrc} alt={image.title} width="250" />
-                ))}
+
+                {dog.images &&
+                  dog.images.map((image, imgIndex) => (
+                    <img key={imgIndex}
+                      src={image.imageSrc}
+                      alt={image.title}
+                      width="250"
+                    />
+                  ))}
               </li>
             );
           })}
@@ -31,4 +37,3 @@ const MatchPage = () => {
 };
 
 export default MatchPage;
-

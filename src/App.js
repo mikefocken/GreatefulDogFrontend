@@ -10,6 +10,7 @@ import MatchMakerPage from "./pages/MatchMakerPage/MatchMakerPage";
 import SearchPage from "./pages/SearchPage/SearchPage.js";
 import AddDogPage from "./pages/AddDogPage/AddDogPage";
 import DogDetailsPage from "./pages/DogDetailsPage/DogDetailsPage.js";
+import AdopterPage from "./pages/AdopterPage/AdopterPage.js";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -42,7 +43,8 @@ function App() {
         <Route path="/add-dog" element={<AddDogPage />} />
         <Route path="/dog/:dogId" element={<DogDetailsPage />} />
         <Route path="/match-page" element={<MatchPage />} />
-        <Route path="/ScheduleAppointment" element={<ScheduleAppointment />} />
+        <Route path="/searchmatch-page" element={<ResultsList />} />
+        <Route path="/AdopterPage" element={<AdopterPage />} />
       </Routes>
       <Footer />
     </div>

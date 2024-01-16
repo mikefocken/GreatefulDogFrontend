@@ -27,7 +27,7 @@ const ScheduleAppointment = () => {
 
   return (
     <div>
-      <h3>Schedule an Appointment</h3>
+      <h3>Schedule Appointment to visit your new best friend</h3>
       <AppointmentForm onSearch={handleSubmit} />
       {isSubmitting && <p>Submitting...</p>}
       {message && <p>{message}</p>}

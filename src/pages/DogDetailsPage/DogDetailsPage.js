@@ -5,31 +5,44 @@ import axios from "axios";
 const DogDetailsPage = () => {
   const { dogId } = useParams();
   const [dogDetails, setDogDetails] = useState(null);
+  const [dogImages, setDogImages] = useState(null);
 
   useEffect(() => {
-    const fetchDogDetails = async () => {
-      try {
-        console.log("Fetching details for dog ID:", dogId);
-        const detailsResponse = await axios.get(`https://localhost:5001/api/dogs/${dogId}`);
-        const imageResponse = await axios.get(`https://localhost:5001/api/image/ByDog/${dogId}`);
-
-        setDogDetails({ ...detailsResponse.data, images: imageResponse.data });
-      } catch (error) {
-        console.error("Error fetching dog details:", error);
-        // Handle error appropriately
-      }
-    };
-
     fetchDogDetails();
+    fetchDogImages();
   }, [dogId]);
 
-  if (!dogDetails) {
+  const fetchDogDetails = async () => {
+    try {
+      console.log("Fetching details for dog ID:", dogId);
+      const detailsResponse = await axios.get(
+        `https://localhost:5001/api/dogs/${dogId}`
+      );
+      setDogDetails(detailsResponse.data);
+    } catch (error) {
+      console.error("Error fetching dog details:", error);
+    }
+  };
+
+  const fetchDogImages = async () => {
+    try {
+      console.log("Fetching images for dog ID:", dogId);
+      const imageResponse = await axios.get(
+        `https://localhost:5001/api/image/ByDog/${dogId}`
+      );
+      setDogImages(imageResponse.data);
+    } catch (error) {
+      console.error("Error fetching dog images:", error);
+    }
+  };
+
+  if (!dogDetails || !dogImages) {
     return <div>Loading...</div>;
   }
 
   return (
     <div>
-      
+      {console.log(dogDetails)}
       <h2>{dogDetails.name}</h2>
       <p>Age: {dogDetails.age}</p>
       <p>Breed: {dogDetails.breed}</p>
@@ -39,7 +52,15 @@ const DogDetailsPage = () => {
       <p>Energy Level: {dogDetails.energyLevel}</p>
       <p>Color: {dogDetails.color}</p>
       <p>Adopted: {dogDetails.isAdopted ? "Yes" : "No"}</p>
-      {dogDetails.image && <img src={dogDetails.image} alt={dogDetails.name} />}
+      {dogImages &&
+        dogImages.map((image, imgIndex) => (
+          <img
+            key={imgIndex}
+            src={image.imageSrc}
+            alt={image.title}
+            width="250"
+          />
+        ))}
     </div>
   );
 };

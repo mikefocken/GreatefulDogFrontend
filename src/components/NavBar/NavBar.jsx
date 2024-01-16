@@ -27,10 +27,11 @@ const Navbar = () => {
         <Link to="/AddDog">
           <button>AddDog</button>
         </Link>
-        
-        <Link to="/ScheduleAppointment">
-          <button>Schedule Appointment</button>
+        <Link to="/AdopterPage">
+          <button>Forms & status</button>
         </Link>
+        
+        
 
         <li>
           {user ? (

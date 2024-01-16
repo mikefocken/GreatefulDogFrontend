@@ -6,7 +6,6 @@ import SearchBarForm from "./SearchBarForm";
 const SearchPage = () => {
   const navigate = useNavigate();
   const [results, setResults] = useState(null);
-  
 
   const handleFormSubmit = async (formData) => {
     const requestData = {
@@ -42,7 +41,7 @@ const SearchPage = () => {
       );
 
       setResults(dogsWithImages);
-      navigate("/match-page", { state: { matches: dogsWithImages } });
+      navigate("/searchmatch-page", { state: { matches: dogsWithImages } });
     } catch (error) {
       console.error("Error fetching data", error);
       console.log("Error details:", error.response?.data || error.message);
