@@ -47,7 +47,7 @@ const SearchBarForm = ({ onSearch }) => {
           <option value="gender">Gender</option>
           <option value="size">Size</option>
           <option value="energyLevel">Energy Level</option>
-          {/* Add more options as necessary */}
+          
         </select>
       </div>
       <div>

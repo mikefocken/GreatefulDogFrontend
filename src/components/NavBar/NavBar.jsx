@@ -24,13 +24,13 @@ const Navbar = () => {
         <Link to="/SearchPage">
           <button>Search</button>
         </Link>
-        <Link to="/AddDog">
-          <button>AddDog</button>
-        </Link>
+        
         <Link to="/AdopterPage">
           <button>Forms & status</button>
         </Link>
-        
+        <Link to="/AdminPage">
+          <button>Admin</button>
+        </Link>
         
 
         <li>

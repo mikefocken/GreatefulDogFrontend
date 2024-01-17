@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import AuthContext from "../../context/AuthContext";
 
 const AdoptionApplicationForm = ({ onSearch }) => {
-  const [applicationStatus, setApplicationStatus] = useState("Pending");
+  const [applicationDate, setApplicationDate] = useState(""); // Initialize with an empty string
+  const [dogId, setDogId] = useState(""); // Initialize with an empty string
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const formData = {
-      status: applicationStatus,
-      // Include additional fields like dogId and userId here later
+      status: "Pending", // Hardcoded to "Pending"
+      applicationDate: applicationDate,
+      dogId: dogId,
     };
 
     onSearch(formData);
@@ -17,17 +19,22 @@ const AdoptionApplicationForm = ({ onSearch }) => {
   return (
     <form onSubmit={handleFormSubmit}>
       <label>
-        Application Status:
-        <select
-          value={applicationStatus}
-          onChange={(e) => setApplicationStatus(e.target.value)}
-        >
-          <option value="Pending">Pending</option>
-          <option value="Denied">Denied</option>
-          <option value="Approved">Approved</option>
-        </select>
+        Application Date:
+        <input
+          type="date"
+          value={applicationDate}
+          onChange={(e) => setApplicationDate(e.target.value)}
+        />
       </label>
-      <button type="submit">Update Status</button>
+      <label>
+        Dog ID:
+        <input
+          type="text"
+          value={dogId}
+          onChange={(e) => setDogId(e.target.value)}
+        />
+      </label>
+      <button type="submit">Submit Application</button>
     </form>
   );
 };

@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import AppointmentForm from "./AppointmentForm";
+import useAuth from "../../hooks/useAuth";
 
 const ScheduleAppointment = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState("");
+  const [user, token] = useAuth();
+
+  useEffect(() => {
+    handleSubmit();
+  }, [token]);
 
   const handleSubmit = async (appointmentData) => {
     setIsSubmitting(true);
@@ -13,7 +19,12 @@ const ScheduleAppointment = () => {
     try {
       const response = await axios.post(
         "https://localhost:5001/api/Schedules",
-        appointmentData
+        appointmentData,
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
       );
       console.log("Appointment scheduled successfully:", response.data);
       setMessage("Appointment scheduled successfully!");

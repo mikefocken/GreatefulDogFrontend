@@ -11,7 +11,7 @@ import SearchPage from "./pages/SearchPage/SearchPage.js";
 import AddDogPage from "./pages/AddDogPage/AddDogPage";
 import DogDetailsPage from "./pages/DogDetailsPage/DogDetailsPage.js";
 import AdopterPage from "./pages/AdopterPage/AdopterPage.js";
-
+import AdminPage from "./pages/AdminPage/AdminPage.js";
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
@@ -22,7 +22,10 @@ import PrivateRoute from "./utils/PrivateRoute";
 import MatchPage from "./pages/MatchMakerPage/MatchPage";
 import ResultsList from "./pages/SearchPage/ResultsList.js";
 import ScheduleAppointment from "./pages/AdopterPage/ScheduleAppointment.js";
-
+import ApplicationProcess from "./pages/AdopterPage/ApplicationProcess.js";
+import SubmitApplication from "./pages/AdopterPage/SubmitApplication.js";
+import EmailRescuePage from "./pages/AdopterPage/EmailRescuePage.js";
+import EditDogPage from "./pages/AddDogPage/EditDogPage.js";
 function App() {
   return (
     <div>
@@ -40,11 +43,16 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/matchmaker" element={<MatchMakerPage />} />
         <Route path="/searchpage" element={<SearchPage />} />
-        <Route path="/add-dog" element={<AddDogPage />} />
+        <Route path="/adddog" element={<AddDogPage />} />
         <Route path="/dog/:dogId" element={<DogDetailsPage />} />
         <Route path="/match-page" element={<MatchPage />} />
         <Route path="/searchmatch-page" element={<ResultsList />} />
         <Route path="/AdopterPage" element={<AdopterPage />} />
+        <Route path="/AdminPage" element={<AdminPage />} />
+        <Route path="/ApplicationProcess" element={<ApplicationProcess />} />
+        <Route path="/ScheduleAppointment" element={<ScheduleAppointment />} />
+        <Route path="/SubmitApplication" element={<SubmitApplication />} />
+        <Route path="/EmailRescuePage" element={<EmailRescuePage />} />
       </Routes>
       <Footer />
     </div>

@@ -1,10 +1,11 @@
 import axios from "axios";
 import React, { useState } from "react";
 
-export default function ImageForm({ dogId }) {
+export default function ImageForm() {
   // State variables for the form inputs
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [dogId, setDogId] = useState(""); // Added state for dogId
   const [image, setImage] = useState(null);
 
   // Handle form submission
@@ -12,13 +13,13 @@ export default function ImageForm({ dogId }) {
     e.preventDefault();
     const formData = new FormData();
     // Append form data to the FormData object
-    formData.append("id");
-    formData.append("title");
-    formData.append("description");
-    formData.append("imageFile");
-    formData.append("dogId");
+    formData.append("dogid", dogId);
+    formData.append("title", title);
+    formData.append("description", description);
+    formData.append("imageFile", image);
 
     try {
+      console.log("Form Data:", formData); // Log form data before sending
       // Send a POST request with the form data to the server
       const response = await axios.post(
         "https://localhost:5001/api/image/",
@@ -30,12 +31,13 @@ export default function ImageForm({ dogId }) {
         }
       );
       // Log the response data
-      console.log(response.data);
+      console.log("Response Data:", response.data);
     } catch (er) {
       // Log any error response data
-      console.log(er.response.data);
+      console.log("Error Response Data:", er.response.data);
     }
   };
+
   return (
     <form onSubmit={handleSubmit}>
       <label>Title:</label>
@@ -48,6 +50,11 @@ export default function ImageForm({ dogId }) {
       <input
         value={description}
         onChange={(event) => setDescription(event.target.value)}
+      />
+      <label>DogId:</label>
+      <input
+        value={dogId}
+        onChange={(event) => setDogId(event.target.value)} // Set dogId state
       />
 
       {/* Image file input */}
