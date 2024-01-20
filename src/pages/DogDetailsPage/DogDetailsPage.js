@@ -41,26 +41,30 @@ const DogDetailsPage = () => {
   }
 
   return (
-    <div>
-      {console.log(dogDetails)}
-      <h2>{dogDetails.name}</h2>
-      <p>Age: {dogDetails.age}</p>
-      <p>Breed: {dogDetails.breed}</p>
-      <p>Gender: {dogDetails.gender}</p>
-      <p>Size: {dogDetails.size}</p>
-      <p>Weight: {dogDetails.weight}</p>
-      <p>Energy Level: {dogDetails.energyLevel}</p>
-      <p>Color: {dogDetails.color}</p>
-      <p>Adopted: {dogDetails.isAdopted ? "Yes" : "No"}</p>
-      {dogImages &&
-        dogImages.map((image, imgIndex) => (
-          <img
-            key={imgIndex}
-            src={image.imageSrc}
-            alt={image.title}
-            width="250"
-          />
-        ))}
+    <div class="flex-conatiner-card">
+      <div>
+        {dogImages &&
+          dogImages.map((image, imgIndex) => (
+            <img
+              key={imgIndex}
+              src={image.imageSrc}
+              alt={image.title}
+              width="250"
+            />
+          ))}
+      </div>
+      <div>
+        {console.log(dogDetails)}
+        <h1>{dogDetails.name}</h1>
+        <p>Age: {dogDetails.age}</p>
+        <p>Breed: {dogDetails.breed}</p>
+        <p>Gender: {dogDetails.gender}</p>
+        <p>Size: {dogDetails.size}</p>
+        <p>Weight: {dogDetails.weight}</p>
+        <p>Energy Level: {dogDetails.energyLevel}</p>
+        <p>Color: {dogDetails.color}</p>
+        <p>Adopted: {dogDetails.isAdopted ? "Yes" : "No"}</p>
+      </div>
     </div>
   );
 };

@@ -3,13 +3,13 @@ import axios from "axios";
 import DeleteDogForm from "./DeleteDogForm";
 
 const DeleteDogPage = () => {
-  const [dogId, setDogId] = useState(""); // Create and manage dogId state here
+  const [dogId, setDogId] = useState("");
 
   const handleDelete = async () => {
     try {
       console.log("Deleting dog with ID:", dogId);
       const response = await axios.delete(
-        `https://localhost:5001/api/Dogs/${dogId}` // Delete request with dogId
+        `https://localhost:5001/api/Dogs/${dogId}` //with dogId
       );
       console.log("Dog deleted successfully:", response.data);
     } catch (error) {
@@ -23,9 +23,8 @@ const DeleteDogPage = () => {
       <DeleteDogForm
         onDelete={handleDelete}
         dogId={dogId}
-        setDogId={setDogId}
-      />{" "}
-      {/* Pass dogId and setDogId as props */}
+        setDogId={setDogId}/>
+      
     </div>
   );
 };

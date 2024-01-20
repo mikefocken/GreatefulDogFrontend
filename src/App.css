@@ -14,7 +14,7 @@ html {
 }
 
 p {
-  font-size: 20px;
+  font-size: 9px;
 }
 
 button {
@@ -33,13 +33,6 @@ button:hover {
   background-color: steelblue;
 }
 
-.container {
-  margin: 0 auto;
-  max-width: 600px;
-  overflow: auto;
-  text-align: center;
-}
-
 .form {
   align-items: center;
   display: flex;
@@ -55,4 +48,55 @@ button:hover {
   margin: 5px;
   padding: 3px 7px;
   font-size: 17px;
+}
+
+
+.dog-image {
+  width: 100%; /* Adjust the width as needed */
+  max-height: 380px; /* Adjust the maximum height as needed */
+  object-fit: cover; /* This will ensure the image covers the entire container */
+}
+
+/* for searcbar and matchpage form*/
+.flex-container1 { 
+  background-color: lightgreen;
+  display: flex;
+  flex-direction: row;
+  max-height: 400px;
+ justify-content: space-between; 
+}
+/* for searcbar and matchpage form*/
+.image-container {
+ padding-left: 15px;
+ padding-right: 15px;
+}
+/* for searcbar and matchpage form*/
+.name-container {
+  padding-left: 15px;
+  padding-right: 15px;
+ }
+ /* for searcbar and matchpage form*/
+ .return{
+  background: Green(11, 22, 22);
+  box-shadow: 4px 2px 5px gray;
+  color: green;
+  
+} 
+/*matchmaker button*/
+.oval {
+  height: 50px;
+  width: 100px;
+  background-color: gray;
+  border-radius: 50%;
+  color: red;
+}
+/*matchmaker form*/
+.container {
+  margin: 0 auto;
+  max-width: 360px;
+  overflow: auto;
+  text-align: center;
+}
+.flex-conatiner-card{
+  display:flex ;
 }

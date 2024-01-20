@@ -26,6 +26,7 @@ import ApplicationProcess from "./pages/AdopterPage/ApplicationProcess.js";
 import SubmitApplication from "./pages/AdopterPage/SubmitApplication.js";
 import EmailRescuePage from "./pages/AdopterPage/EmailRescuePage.js";
 import EditDogPage from "./pages/AddDogPage/EditDogPage.js";
+
 function App() {
   return (
     <div>
@@ -50,8 +51,8 @@ function App() {
         <Route path="/AdopterPage" element={<AdopterPage />} />
         <Route path="/AdminPage" element={<AdminPage />} />
         <Route path="/ApplicationProcess" element={<ApplicationProcess />} />
-        <Route path="/ScheduleAppointment" element={<ScheduleAppointment />} />
         <Route path="/SubmitApplication" element={<SubmitApplication />} />
+        <Route path="/ScheduleAppointment" element={<SubmitApplication />} />
         <Route path="/EmailRescuePage" element={<EmailRescuePage />} />
       </Routes>
       <Footer />

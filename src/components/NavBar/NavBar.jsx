@@ -15,31 +15,37 @@ const Navbar = () => {
             <b>Greateful Dog Rescue</b>
           </Link>
         </li>
-        <li>
-          <button> Meet Our pack</button>
-        </li>
-        <Link to="/MatchMaker">
-          <button>Match Maker</button>
-        </Link>
-        <Link to="/SearchPage">
-          <button>Search</button>
-        </Link>
-        
-        <Link to="/AdopterPage">
-          <button>Forms & status</button>
-        </Link>
-        <Link to="/AdminPage">
-          <button>Admin</button>
-        </Link>
-        
 
         <li>
+          <Link to="/MatchMaker">
+            <button>Match Maker</button>
+          </Link>
+        </li>
+
+        <li className="flex-containerNav">
+          <div>
+            <a href="SearchPage">Search</a>
+          </div>
+
+          <div>
+            <a href="AdopterPage">Adopter Forms</a>
+          </div>
+          <div>
+            {" "}
+            {user && user.admin ? <a href="AdminPage">Admin</a> : null}
+          </div>
+
+          <div>
+            <a href="HomePage">Home</a>
+          </div>
+        </li>
+        <div>
           {user ? (
             <button onClick={logoutUser}>Logout</button>
           ) : (
             <button onClick={() => navigate("/login")}>Login</button>
           )}
-        </li>
+        </div>
       </ul>
     </div>
   );

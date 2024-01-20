@@ -1,0 +1,18 @@
+.MatchMakerPage{
+    background: lightgreen(11, 22, 22);
+    box-shadow: 4px 2px 5px gray;
+    color: white;
+    
+}
+
+.form-container{
+    display: column;
+   
+}
+.form-center-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+       height: 100vh; /* 100% of the viewport height */
+    padding: 15px;
+    margin-top: 5px; 
+}

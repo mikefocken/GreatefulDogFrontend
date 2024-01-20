@@ -9,11 +9,12 @@ li {
 }
 
 .navBar {
-  background: steelblue;
+  background: rgb(144, 235, 238);
   box-shadow: 4px 2px 5px gray;
   color: white;
   margin-bottom: 2rem;
   padding: 1.5rem 2rem;
+  height: 165px;
 }
 
 .navBar button {
@@ -32,4 +33,19 @@ li {
 .brand {
   cursor: pointer;
   font-size: 2rem;
+}
+.flex-containerNav {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  padding: 10px 0; /* Add padding on top (10px) and bottom (0) */
+}
+.flex-containerNav div {
+  margin-right: 10px; /* Add horizontal spacing between the items */
+}
+
+
+
+.flex-container1 {
+  flex-direction: inline;
 }

@@ -27,4 +27,3 @@ const DeleteDogForm = ({ onDelete }) => {
 };
 
 export default DeleteDogForm;
-

@@ -5,18 +5,23 @@ const AdopterPage = () => {
   return (
     <div>
       <h3>Adopter Page</h3>
-      <Link to="/ApplicationProcess">
-        <button>Adoption Status</button>
-      </Link>
-      <Link to="/ScheduleAppointment">
-        <button>ScheduleAppointment</button>
-      </Link>
-      <Link to="/SubmitApplication">
-        <button>SubmitApplication</button>
-      </Link>
-      <Link to="/EmailRescuePage">
-        <button>Email Us</button>
-      </Link>
+      
+      <li>
+        <a href="ScheduleAppointment">Schedule a meet and greet with a dog</a>
+      </li>
+      <li>
+        <a href="EmailRescuePage">Emails us with any questions</a>
+      </li>
+
+      
+      <li>
+        <a href="SubmitApplication ">Fill out and Application</a>
+      </li>
+
+      
+      <li>
+        <a href="ApplicationProcess">Adoption Status</a>
+      </li>
     </div>
   );
 };

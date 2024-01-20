@@ -8,8 +8,10 @@ const EditDogPage = () => {
   const handleSubmit = async (dogData) => {
     try {
       const response = await axios.put(
-        console.log("dogData before sending:", dogData)
-        `https://localhost:5001/api/dogs/${dogId}`, //  should be dogId from the state
+        console.log(
+          "dogData before sending:",
+          dogData
+        )`https://localhost:5001/api/dogs/${dogId}`, //  should be dogId from the state
         dogData
       );
       console.log("Dog added successfully:", response.data);

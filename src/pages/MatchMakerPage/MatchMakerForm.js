@@ -16,8 +16,10 @@ const MatchMakerForm = ({ onSubmit }) => {
   };
 
   return (
+    <div className="form-center-container">
     <form onSubmit={handleFormSubmit}>
       <div className="form-container">
+        <div>
         <label>
           Age:
           <select value={age} onChange={(e) => setAge(e.target.value)}>
@@ -29,7 +31,8 @@ const MatchMakerForm = ({ onSubmit }) => {
             <option value="11-15">11-15 years</option>
           </select>
         </label>
-
+        </div>
+        <div>
         <label>
           Breed:
           <input
@@ -39,7 +42,8 @@ const MatchMakerForm = ({ onSubmit }) => {
             placeholder="Enter dog breed"
           />
         </label>
-
+        </div>
+        <div>
         <label>
           Gender:
           <select value={gender} onChange={(e) => setGender(e.target.value)}>
@@ -48,7 +52,8 @@ const MatchMakerForm = ({ onSubmit }) => {
             <option value="Male">Male</option>
           </select>
         </label>
-
+       </div>
+       <div>
         <label>
           Size:
           <select value={size} onChange={(e) => setSize(e.target.value)}>
@@ -58,7 +63,8 @@ const MatchMakerForm = ({ onSubmit }) => {
             <option value="Small">Small</option>
           </select>
         </label>
-
+        </div>
+        <div>
         <label>
           Weight:
           <select value={weight} onChange={(e) => setWeight(e.target.value)}>
@@ -71,18 +77,22 @@ const MatchMakerForm = ({ onSubmit }) => {
             <option value="91-110"> 91-110 Lbs</option>
           </select>
         </label>
+        </div>
+        <div>
         <label>
           EnergyLevel:
           <select
             value={energylevel}
-            onChange={(e) => setEnergyLevel(e.target.value)}
-          >
+            onChange={(e) => setEnergyLevel(e.target.value)}>
+          
             <option value="">Select EnergyLevel</option>
             <option value="High">High</option>
             <option value="Medium">Medium</option>
             <option value="Low">Low</option>
           </select>
         </label>
+        </div>
+        <div>
         <label>
           Color:
           <select value={color} onChange={(e) => setColor(e.target.value)}>
@@ -97,10 +107,13 @@ const MatchMakerForm = ({ onSubmit }) => {
             <option value="Red">Red</option>
           </select>
         </label>
-
-        <button type="submit">Submit</button>
+        </div>
+        <div>
+        <button class="oval" type="submit">Submit</button>
+        </div>
       </div>
     </form>
+    </div>
   );
 };
 

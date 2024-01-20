@@ -38,7 +38,7 @@ const MatchMakerPage = () => {
     <div>
       <h1>Match Maker Page</h1>
       <MatchMakerForm onSubmit={handleFormSubmit} />
-      {/* Other components or logic can be added here if needed */}
+   
     </div>
   );
 };
