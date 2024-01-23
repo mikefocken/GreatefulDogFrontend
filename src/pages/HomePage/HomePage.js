@@ -1,28 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react"; // Import useEffect here
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import "./HomePage.css";
 const HomePage = () => {
+  // The "user" value from this Hook contains user information (id, userName, email) from the decoded token
+  // The "token" value is the JWT token sent from the backend that you will send back in the header of any request requiring authentication
   const [user, token] = useAuth();
-  const [dogImageUrl, setDogImageUrl] = useState(null); // State to store dog image URL
+  const [schedules, setSchedules] = useState([]);
 
   useEffect(() => {
-    const fetchDogImage = async () => {
-      try {
-        let response = await axios.get(
-          "https://localhost:5001/api/image/ByDog/11"
-        );
-        const imageUrl = response.data; // Assuming response.data contains the image URL
+    fetchSchedules();
+  }, [token]);
 
-        // Update the dogImageUrl state with the fetched URL
-        setDogImageUrl(imageUrl);
-      } catch (error) {
-        console.log(error.response.data);
-      }
-    };
-
-    fetchDogImage(); // Call fetchDogImage when the component mounts
-  }, []);
+  const fetchSchedules = async () => {
+    try {
+      let response = await axios.get(
+        "https://localhost:5001/api/Schedules/Today",
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+      setSchedules(response.data);
+    } catch (error) {
+      console.log(error.response.data);
+    }
+  };
 
   return (
     <div>
@@ -46,26 +50,16 @@ const HomePage = () => {
             power of compassion, and we've witnessed incredible transformations
             in the dogs we've had the privilege to rescue. Our commitment to
             finding the perfect match between dogs and families is unwavering.
-            We understand that every dog is unique, and we take the time to
-            ensure that each adoption is a happy and lasting one. Seeing the joy
-            on both the faces of our dogs and their new families is our greatest
-            reward. But our work doesn't stop at adoption. Greatful Dog Rescue
-            also focuses on education and outreach, spreading awareness about
-            responsible pet ownership and the importance of spaying and
-            neutering. We believe in creating a community where every dog has
-            the opportunity to live a life filled with love, care, and
-            companionship. As we continue our journey in San Diego, we invite
-            you to join us in making a difference. Whether you're looking to
-            adopt a new family member, volunteer your time, or support our
-            cause, together, we can write countless "happily ever after" stories
-            for dogs in need. Thank you for being a part of our mission to give
-            dogs a brighter future. With gratitude and wagging tails, The
-            Greatful Dog Rescue Team
+            Whether you're looking to adopt a new family member, volunteer your
+            time, or support our cause, together, we can write countless
+            "happily ever after" stories for dogs in need. Thank you for being a
+            part of our mission to give dogs a brighter future. With gratitude
+            and wagging tails, The Greatful Dog Rescue Team
           </p>
         </div>
+
         <div className="dog-of-the-week">
           <h3>Dog of the week</h3>
-          
         </div>
 
         <div className="container">

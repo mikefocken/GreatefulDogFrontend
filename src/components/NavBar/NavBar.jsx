@@ -34,6 +34,10 @@ const Navbar = () => {
             {" "}
             {user && user.admin ? <a href="AdminPage">Admin</a> : null}
           </div>
+          <div>
+          <a href="mailto:mikefocken@gmail.com">EmailUs</a>
+          </div>
+          
 
           <div>
             <a href="HomePage">Home</a>

@@ -9,10 +9,7 @@ const AdopterPage = () => {
       <li>
         <a href="ScheduleAppointment">Schedule a meet and greet with a dog</a>
       </li>
-      <li>
-        <a href="EmailRescuePage">Emails us with any questions</a>
-      </li>
-
+      
       
       <li>
         <a href="SubmitApplication ">Fill out and Application</a>

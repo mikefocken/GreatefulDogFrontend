@@ -18,14 +18,7 @@ const AdoptionApplicationForm = ({ onSearch }) => {
 
   return (
     <form onSubmit={handleFormSubmit}>
-      <label>
-        Application Date:
-        <input
-          type="date"
-          value={applicationDate}
-          onChange={(e) => setApplicationDate(e.target.value)}
-        />
-      </label>
+      
       <label>
         Dog ID:
         <input
@@ -34,7 +27,7 @@ const AdoptionApplicationForm = ({ onSearch }) => {
           onChange={(e) => setDogId(e.target.value)}
         />
       </label>
-      <button type="submit">Submit Application</button>
+      <button type="submit">Submit Dog of the week Photo</button>
     </form>
   );
 };

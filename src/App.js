@@ -12,6 +12,8 @@ import AddDogPage from "./pages/AddDogPage/AddDogPage";
 import DogDetailsPage from "./pages/DogDetailsPage/DogDetailsPage.js";
 import AdopterPage from "./pages/AdopterPage/AdopterPage.js";
 import AdminPage from "./pages/AdminPage/AdminPage.js";
+import GetAdoptionApplicationsPage from "./pages/AdoptionApplicationsPage/GetAdoptionApplicationsPage.js"
+
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
@@ -24,8 +26,9 @@ import ResultsList from "./pages/SearchPage/ResultsList.js";
 import ScheduleAppointment from "./pages/AdopterPage/ScheduleAppointment.js";
 import ApplicationProcess from "./pages/AdopterPage/ApplicationProcess.js";
 import SubmitApplication from "./pages/AdopterPage/SubmitApplication.js";
-import EmailRescuePage from "./pages/AdopterPage/EmailRescuePage.js";
-import EditDogPage from "./pages/AddDogPage/EditDogPage.js";
+import EditDogPage from "./pages/AdminPage/EditDogPage.js";
+import EditAdoptionsPage from "./pages/AdoptionApplicationsPage/EditAdoptionsPage.js";
+
 
 function App() {
   return (
@@ -53,7 +56,9 @@ function App() {
         <Route path="/ApplicationProcess" element={<ApplicationProcess />} />
         <Route path="/SubmitApplication" element={<SubmitApplication />} />
         <Route path="/ScheduleAppointment" element={<SubmitApplication />} />
-        <Route path="/EmailRescuePage" element={<EmailRescuePage />} />
+        <Route path="/EditDogPage" element={<EditDogPage />} />
+        <Route path="/EditAdoptionsPage" element={<EditAdoptionsPage />} />
+        <Route path="/GetAdoptionApplicationsPage" element={<GetAdoptionApplicationsPage />} />
       </Routes>
       <Footer />
     </div>

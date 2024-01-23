@@ -1,28 +1,26 @@
 import React, { useState } from "react";
 
-const DeleteDogForm = ({ onDelete }) => {
-  const [dogId, setDogId] = useState(""); // Add Dog ID state
+const DeleteDogForm = ({ onDeleteSubmit }) => {
+  const [dogId, setDogId] = useState("");
 
-  const handleFormSubmit = (e) => {
+  const handleDeleteSubmit = (e) => {
     e.preventDefault();
-    onDelete(dogId); // Pass dogId to the onDelete function
+    onDeleteSubmit(dogId); // Call the callback function with the dog ID for deletion
   };
 
   return (
-    <form onSubmit={handleFormSubmit}>
-      <div className="form-container">
-        <label>
-          Dog ID to Delete:
-          <input
-            type="text"
-            value={dogId}
-            onChange={(e) => setDogId(parseInt(e.target.value, 10))}
-            placeholder="Enter Dog ID"
-          />
-        </label>
+    <div>
+      <h1>Delete Dog Profile</h1>
+      <form onSubmit={handleDeleteSubmit}>
+        <input
+          type="text"
+          value={dogId}
+          onChange={(e) => setDogId(e.target.value)}
+          placeholder="Enter Dog ID"
+        />
         <button type="submit">Delete Dog</button>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 };
 

@@ -13,7 +13,7 @@ const EditDogForm = ({ onSubmit }) => {
   const [adoptionDate, setAdoptionDate] = useState("");
   const [isAdopted, setIsAdopted] = useState("");
 
-  const handleFormSubmit = (e) => {
+  const handleEditDogSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted!");
     var dogData = {
@@ -33,14 +33,14 @@ const EditDogForm = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleFormSubmit}>
+    <form onSubmit={handleEditDogSubmit}>
       <div className="form-container">
         <label>
           Dog ID:
           <input
             type="text"
             value={dogId}
-            onChange={(e) => setDogId(parseInt(e.target.value, 10))}
+            onChange={(e) => setDogId(e.target.value)} // Keep dogId as a string
             placeholder="Enter Dog ID"
           />
         </label>
